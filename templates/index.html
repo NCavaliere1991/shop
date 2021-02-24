@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Store Home {% endblock %}
+
+{% block content %}
+<div class="containter">
+  <h1>Check out our wares!</h1>
+  <div class="container">
+    <div class="row">
+    {% for product in products %}
+      <div class="col">
+        <img src="{{product.img_url}}">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title}}</h5>
+          <p class="card-description">{{product.description}}</p>
+          <p class="card-price">${{product.price}}</p>
+          <div class="container btn-container">
+            <a href="{{ url_for('add_to_cart', id=product.id)}}" class="btn btn-primary">Add to cart</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
